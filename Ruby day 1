@@ -1,0 +1,188 @@
+ favorite_movies =
+ {"Brazil"=> 1, "Hitchikers Guide"=> 10, "Interstellar"=> 10, "Hell Or Highwater"=> 7, "There Will Be Blood"=> 8, "Shawshank Redemption"=> 0, "X-Men"=> 1, "Harry Potter"=> 2, "Lord of The Rings"=> 10, "Zootopia"=> 9}
+
+ favorite_movies = {"Hitchikers Guide"=>10, "Interstellar"=>10, "Lord of The Rings"=>10, "Zootopia"=>9}
+ favorite_movies.map {|k,v| k.reverse}
+
+ user_id = gets.chomp
+ password = gets.chomp
+
+ def same a,b
+   unless a != b
+     puts "same login"
+   else
+     puts "congrats"
+  end
+
+
+ same user_id, password
+
+
+ def long_enough a, b
+  if a.length < 6
+    puts "user name too short"
+  elsif a.length >= 6
+       puts "user name accepted"
+   if b.length < 6
+     puts "password too short"
+   elsif a.length >= 6
+        puts "password accepted"
+  end
+
+  special_chars = ["!", "#", "$"]
+def does_not_contain a
+  if a.include? "!"
+    puts "User name may not contain !"
+  elsif a.include? "#"
+    puts "User name may not contain #"
+  elsif a.include? "$"
+    puts "User name may not contain $"
+  end
+end
+
+def contains_special b
+  if  b.include? "!"
+    puts "Your password is accepted."
+  elsif b.include? "#"
+    puts "Your password is accepted."
+  elsif b.include? "$"
+    puts "Your password is accepted."
+  else
+    puts "Please enter a valid password."
+  end
+end
+
+def pass_check a
+  if a.match (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])(?!.*\s).{6,15}$/)
+    puts "Your password was correct"
+  else
+    puts "Your password is incorrect"
+  end
+end
+
+def user_check b
+  if b.match (/^(?=.*[a-zA-Z])(?!=.*[!@#$%^&*])(?!.*\s).{6,15}$/)
+    puts "Your username was correct"
+  else
+    puts "Your username is incorrect"
+  end
+end
+
+def user_pass_check
+  username= gets.chomp
+  password= gets.chomp
+  user_check username
+  pass_check password
+end
+
+x = 20
+y = 0
+
+# Validate numbers between 0-100
+x.times do y += 1
+  if y.between?(0, 10)
+    puts "#{y} is a valid number"
+  end
+end
+
+# This is the FizzBuzz challenge
+x=100
+y= 0
+x.times do  y += 1
+  if y % 3 != 0 && y % 5 != 0
+    puts y
+  elsif y % 3 == 0 && y % 5 == 0
+    puts "FizzBuzz"
+  elsif y % 3 == 0
+    puts "Fizz"
+  elsif y % 5 == 0
+    puts "Buzz"
+  end
+end
+ # sum of numbers
+def sum_these_numbers a,b
+  puts a + b
+end
+#check for even
+def iseven (a)
+  if a.even?
+    puts "#{a} is even"
+  else
+    puts "#{a} is odd"
+end
+end
+
+# array uppercase challenge
+
+words = ["one", "two", "monkey", "donkey"]
+
+words.each do |a|
+  puts a.upcase
+end
+
+# Write a method that uses another method and returns it's value
+a = 5
+c = 2
+
+def add_them a,c
+a + c
+end
+
+def multiply_them a,c
+  puts add_them(a,c) * 5
+end
+
+# validate the date
+def date_check
+month = gets.chomp.to_i
+date = gets.chomp.to_i
+year = gets.chomp.to_i
+
+  if month.between?(1,12)
+    puts "month is valid"
+  else
+    puts "month isn't valid"
+  end
+  if month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month ==12 && date.between?(1,31)
+    puts "date is valid"
+  elsif month == 4 || month == 6 || month == 9 || month ==11 && date.between?(1,30)
+    puts "date is valid"
+  elsif month ==2 && year % 4 != 0 && date.between?(1,28)
+      puts "date is valid"
+  elsif month ==2 && year % 4 == 0 && date.between?(1,29)
+      puts "date is valid"
+    else
+      puts "your date is invalid"
+  end
+  if year.between?(2000,2017)
+    puts "year is valid"
+  else
+    puts "year isn't valid "
+  end
+end
+
+# Rock Paper Scissors game
+def rps_game 
+  a = gets.chomp
+  b = gets.chomp
+
+  if a != "rock" && a != "paper" && a != "scissors"
+    puts "player 1 please enter a valid choice"
+  elsif b != "rock" && b != "paper" && b != "scissors"
+    puts "player 2 please enter a valid choice"
+  elsif a == "rock" && b == "scissors"
+    puts "1st player wins"
+  elsif b == "rock" && a == "scissors"
+    puts "2nd player wins"
+  elsif a == "paper" && b == "rock"
+    puts "1st player wins"
+  elsif b == "paper" && a == "rock"
+    puts "2nd player wins"
+  elsif a == "scissors" && b == "paper"
+    puts "1st player wins"
+  elsif b == "scissors" && a == "paper"
+    puts "2nd player wins"
+  elsif a == b
+    puts "tie game"
+  end
+end
